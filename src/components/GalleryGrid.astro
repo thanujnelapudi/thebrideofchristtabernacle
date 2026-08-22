@@ -1,0 +1,14 @@
+---
+const items = Array.from({ length: 12 }, (_, i) => i + 1);
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {items.map((item) => (
+    <div class="min-h-[250px] bg-gray-300 rounded-md overflow-hidden relative group">
+      <div class="absolute inset-0 flex items-center justify-center text-gray-500 font-medium bg-gray-200">
+        <!-- REPLACE: Photo image -->
+        Photo Placeholder
+      </div>
+    </div>
+  ))}
+</div>

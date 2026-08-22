@@ -1,0 +1,799 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BranchCard from "../components/BranchCard.astro";
+---
+
+<Layout title="Home">
+  <!-- ═══════════════════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════════════════ -->
+  <section
+    id="hero"
+    class="relative min-h-[calc(100vh-80px)] flex flex-col items-center justify-center text-center overflow-hidden py-12"
+    aria-label="Hero"
+  >
+    <!-- Background image -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/clouds-hero-bg.png"
+        alt=""
+        role="presentation"
+        class="w-full h-full object-cover"
+        fetchpriority="high"
+      />
+      <!-- Dark overlay ~50% -->
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="background: rgba(0,0,0,0.52);"
+      >
+      </div>
+      <!-- Subtle bottom gradient for smooth transition -->
+      <div
+        class="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));"
+      >
+      </div>
+    </div>
+
+    <!-- Hero content -->
+    <div
+      class="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 flex flex-col items-center hero-fade-in"
+    >
+      <!-- Eyebrow label -->
+      <p
+        class="text-[#e07b20] text-sm sm:text-base font-semibold tracking-[0.2em] uppercase mb-6 opacity-90"
+      >
+        Welcome to Our Community
+      </p>
+
+      <h1
+        class="font-outfit font-extrabold tracking-tight leading-[1.05] text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[5.5rem] mb-6"
+      >
+        Bride of Christ<br class="hidden sm:block" /> Tabernacle
+      </h1>
+
+      <div class="w-20 h-px bg-white/40 mx-auto mb-6"></div>
+
+      <!-- Scripture Block -->
+      <div class="max-w-4xl mx-auto px-8 sm:px-14 md:px-20 text-center flex flex-col items-center mb-10">
+        <p
+          class="text-[#f0c070] text-xl sm:text-2xl md:text-[1.65rem] font-outfit font-normal italic tracking-wide leading-relaxed opacity-95 text-center drop-shadow-md"
+        >
+          “And I saw another mighty angel come down from heaven, clothed with a cloud: and a rainbow was upon his head,<br class="hidden md:inline" />
+          and his face was as it were the sun, and his feet as pillars of fire”
+        </p>
+        <div class="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 border border-white/20 text-[#e07b20] text-xs sm:text-sm font-semibold tracking-widest uppercase shadow-md">
+          <span>— Revelation 10:1 —</span>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center bg-[#8B0000] hover:bg-[#6e0000] active:bg-[#5a0000] text-white font-bold py-4 px-10 rounded-full transition-all duration-250 text-base border-2 border-white/15 shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/50 min-h-[52px]"
+        >
+          Join Us
+        </a>
+        <a
+          href="/live"
+          class="inline-flex items-center justify-center border-2 border-white/70 text-white font-bold py-4 px-10 rounded-full transition-all duration-250 text-base hover:bg-white/15 active:bg-white/25 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/50 min-h-[52px]"
+        >
+          <svg
+            class="w-4 h-4 mr-2"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+          Watch Online
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div
+      class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 opacity-50 animate-bounce"
+      aria-hidden="true"
+    >
+      <svg
+        class="w-6 h-6 text-white"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MEET OUR PASTOR
+  ═══════════════════════════════════════════════════════ -->
+  <section
+    id="pastor"
+    class="py-24 sm:py-28 lg:py-32"
+    style="background: linear-gradient(135deg, #8B0000 0%, #6b0000 50%, #4a0000 100%);"
+    aria-labelledby="pastor-heading"
+  >
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+        <!-- Portrait -->
+        <div class="flex-shrink-0 flex flex-col items-center">
+          <div
+            class="w-52 h-52 md:w-64 md:h-64 rounded-full bg-gray-300 overflow-hidden border-4 border-white/20 shadow-2xl ring-4 ring-white/10"
+          >
+            <img
+              src="/images/pastor.jpeg"
+              alt="Pastor Rufus Daniel"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <span
+            class="mt-5 text-xs font-bold tracking-[0.15em] uppercase text-white/60 bg-white/10 px-5 py-2 rounded-full border border-white/15"
+          >
+            <!-- REPLACE: Pastor title -->
+            Senior &amp; Founding Pastor
+          </span>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 text-center md:text-left">
+          <p
+            class="text-[#e07b20] font-bold tracking-[0.15em] uppercase text-xs sm:text-sm mb-3"
+          >
+            A Message From Our Pastor
+          </p>
+          <h2
+            id="pastor-heading"
+            class="font-outfit text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-6"
+          >
+            <!-- REPLACE: Pastor name -->
+            Pastor Rufus Daniel
+          </h2>
+
+          <div
+            class="space-y-4 text-white/85 font-light leading-[1.8] text-base sm:text-lg mb-10 max-w-2xl"
+          >
+            <p>
+              <!-- REPLACE: Pastor welcome quote -->
+              "Welcome to Bride of Christ Tabernacle — a place where every heart is
+              welcomed, every burden is shared, and every life is touched by the grace
+              of God."
+            </p>
+            <p>
+              <!-- REPLACE: Pastor bio -->
+              With deep biblical roots and a shepherd's heart, Pastor Rufus Daniel
+              leads this congregation with unwavering faithfulness, a passion for
+              prayer, and a vision to see lives transformed by the Gospel of Jesus
+              Christ.
+            </p>
+          </div>
+
+          <!-- Ministry pillars -->
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 pt-6 border-t border-white/15"
+          >
+            {
+              [
+                {
+                  icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                  label: "Biblical Truth",
+                },
+                {
+                  icon: "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3",
+                  label: "Passionate Worship",
+                },
+                {
+                  icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
+                  label: "Loving Community",
+                },
+              ].map(({ icon, label }) => (
+                <div class="flex items-center justify-center md:justify-start gap-2.5 text-sm font-semibold text-white/80">
+                  <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <svg
+                      class="w-4 h-4 text-[#e07b20]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d={icon}
+                      />
+                    </svg>
+                  </div>
+                  <span>{label}</span>
+                </div>
+              ))
+            }
+          </div>
+
+          <a
+            href="/about"
+            class="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-9 py-4 rounded-full hover:bg-white hover:text-[#8B0000] active:scale-95 transition-all duration-250 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-white/50 min-h-[52px]"
+          >
+            Learn More About Our Church
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SERVICE TIMES
+  ═══════════════════════════════════════════════════════ -->
+  <section
+    id="service-times"
+    class="bg-[#fafafa] py-24 sm:py-28 lg:py-32 border-y border-gray-100"
+    aria-labelledby="service-times-heading"
+  >
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      <!-- Section header -->
+      <div class="text-center mb-14">
+        <p
+          class="text-[#8B0000] font-bold tracking-[0.15em] uppercase text-xs sm:text-sm mb-3"
+        >
+          Gather With Us
+        </p>
+        <h2
+          id="service-times-heading"
+          class="font-outfit text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-gray-900 leading-tight"
+        >
+          Join Us for Worship
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Card 1: Sunday Service -->
+        <div
+          class="bg-white rounded-2xl border-t-4 border-[#8B0000] p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-[#8B0000]/8 flex items-center justify-center mb-5 text-[#8B0000]"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6v6l4 2"></path>
+            </svg>
+          </div>
+          <h3 class="font-outfit text-lg font-bold text-gray-900 mb-2">
+            Sunday Service
+          </h3>
+          <p class="text-[#8B0000] font-semibold text-sm mb-1">
+            <!-- REPLACE: Sunday service time -->
+            Every Sunday &mdash; 10:00 AM
+          </p>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            <!-- REPLACE: Sunday service location -->
+            Main Sanctuary, Main Branch
+          </p>
+        </div>
+
+        <!-- Card 2: Midweek Prayer -->
+        <div
+          class="bg-white rounded-2xl border-t-4 border-[#8B0000] p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-[#8B0000]/8 flex items-center justify-center mb-5 text-[#8B0000]"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16 2v4M8 2v4M3 10h18"></path>
+            </svg>
+          </div>
+          <h3 class="font-outfit text-lg font-bold text-gray-900 mb-2">
+            Midweek Prayer
+          </h3>
+          <p class="text-[#8B0000] font-semibold text-sm mb-1">
+            <!-- REPLACE: Midweek prayer time -->
+            Every Wednesday &mdash; 6:30 PM
+          </p>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            <!-- REPLACE: Midweek prayer location -->
+            Prayer Hall, Main Branch
+          </p>
+        </div>
+
+        <!-- Card 3: Special Services -->
+        <div
+          class="bg-white rounded-2xl border-t-4 border-[#8B0000] p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+        >
+          <div
+            class="w-12 h-12 rounded-xl bg-[#8B0000]/8 flex items-center justify-center mb-5 text-[#8B0000]"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="font-outfit text-lg font-bold text-gray-900 mb-2">
+            Special Services
+          </h3>
+          <p class="text-[#8B0000] font-semibold text-sm mb-1">
+            <!-- REPLACE: Special services schedule -->
+            Announced on the Calendar
+          </p>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            <!-- REPLACE: Special services location -->
+            Various Locations &amp; Branches
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       LIVE STREAM / LATEST MESSAGE
+  ═══════════════════════════════════════════════════════ -->
+  <section
+    id="live-stream"
+    class="bg-[#0a0a0a] text-white py-24 sm:py-28 lg:py-32 relative overflow-hidden"
+    aria-labelledby="livestream-heading"
+  >
+    <!-- Subtle dot pattern -->
+    <div
+      class="absolute inset-0 opacity-[0.07] pointer-events-none"
+      style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 36px 36px;"
+    >
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
+      <!-- Section header -->
+      <div class="text-center mb-10">
+        <p
+          class="text-[#8B0000] font-bold tracking-[0.15em] uppercase text-xs sm:text-sm mb-3"
+        >
+          Join Us Online
+        </p>
+        <h2
+          id="livestream-heading"
+          class="font-outfit text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4"
+        >
+          Live Stream &amp; Latest Message
+        </h2>
+        <p
+          class="text-gray-400 text-base sm:text-lg max-w-md mx-auto leading-relaxed"
+        >
+          Can't make it in person? Watch our latest sermon and be inspired from
+          wherever you are.
+        </p>
+      </div>
+
+      <!-- Video player -->
+      <div
+        class="relative w-full aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-[0_24px_64px_rgba(0,0,0,0.55)]"
+      >
+        <iframe
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed?listType=playlist&list=UU2uIzBRoPgTt0t73R7N_y6Q"
+          title="Latest Live Stream / Message"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          loading="lazy"
+          class="absolute inset-0 w-full h-full"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       WHAT WE BELIEVE
+  ═══════════════════════════════════════════════════════ -->
+  <section
+    id="what-we-believe"
+    class="bg-white py-24 sm:py-28 lg:py-32"
+    aria-labelledby="beliefs-heading"
+  >
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      <!-- Section header -->
+      <div class="text-center mb-14">
+        <p
+          class="text-[#8B0000] font-bold tracking-[0.15em] uppercase text-xs sm:text-sm mb-3"
+        >
+          Our Foundation
+        </p>
+        <h2
+          id="beliefs-heading"
+          class="font-outfit text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-gray-900 leading-tight"
+        >
+          What We Believe
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Card 1 -->
+        <div
+          class="bg-[#fafafa] border border-gray-100 rounded-2xl p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+        >
+          <div
+            class="w-11 h-11 rounded-xl bg-[#8B0000]/8 flex items-center justify-center mb-5 text-[#8B0000]"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.966 8.966 0 00-6 2.292m0-14.25v14.25"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="font-outfit text-lg font-bold text-gray-900 mb-3">
+            The Holy Scripture
+          </h3>
+          <p class="text-gray-500 text-[15px] leading-[1.75] flex-grow">
+            <!-- REPLACE: Scripture belief statement -->
+            We believe the Bible is the inspired, infallible Word of God — the supreme
+            authority for all matters of faith, conduct, and doctrine.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="bg-[#fafafa] border border-gray-100 rounded-2xl p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+        >
+          <div
+            class="w-11 h-11 rounded-xl bg-[#8B0000]/8 flex items-center justify-center mb-5 text-[#8B0000]"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v18M6 8h12"></path>
+            </svg>
+          </div>
+          <h3 class="font-outfit text-lg font-bold text-gray-900 mb-3">
+            Salvation by Grace
+          </h3>
+          <p class="text-gray-500 text-[15px] leading-[1.75] flex-grow">
+            <!-- REPLACE: Salvation belief statement -->
+            We believe salvation is a gift of God, received through faith in Jesus
+            Christ alone — not by human effort or merit, but entirely by His grace.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="bg-[#fafafa] border border-gray-100 rounded-2xl p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+        >
+          <div
+            class="w-11 h-11 rounded-xl bg-[#8B0000]/8 flex items-center justify-center mb-5 text-[#8B0000]"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="font-outfit text-lg font-bold text-gray-900 mb-3">
+            The Power of Prayer
+          </h3>
+          <p class="text-gray-500 text-[15px] leading-[1.75] flex-grow">
+            <!-- REPLACE: Prayer belief statement -->
+            We believe prayer is our direct communion with God. We are committed to
+            a lifestyle of intercession, dependence, and spiritual intimacy with the
+            Father.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div
+          class="bg-[#fafafa] border border-gray-100 rounded-2xl p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+        >
+          <div
+            class="w-11 h-11 rounded-xl bg-[#8B0000]/8 flex items-center justify-center mb-5 text-[#8B0000]"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="font-outfit text-lg font-bold text-gray-900 mb-3">
+            Community &amp; Fellowship
+          </h3>
+          <p class="text-gray-500 text-[15px] leading-[1.75] flex-grow">
+            <!-- REPLACE: Community belief statement -->
+            We believe the Church is the living body of Christ — a family called to
+            love one another, bear each other's burdens, and serve the world with
+            joy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       OUR BRANCHES
+  ═══════════════════════════════════════════════════════ -->
+  <section
+    id="branches"
+    class="bg-[#fafafa] py-24 sm:py-28 lg:py-32 border-t border-gray-100"
+    aria-labelledby="branches-heading"
+  >
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <!-- Section header -->
+      <div class="text-center mb-14">
+        <p
+          class="text-[#8B0000] font-bold tracking-[0.15em] uppercase text-xs sm:text-sm mb-3"
+        >
+          Find Us Near You
+        </p>
+        <h2
+          id="branches-heading"
+          class="font-outfit text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-gray-900 leading-tight"
+        >
+          Our Branches
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <BranchCard
+          branchName="Main Branch"
+          city="City Name Placeholder"
+          address="123 Placeholder St, District"
+          serviceTime="Sunday, 10:00 AM"
+        />
+        <BranchCard
+          branchName="North Branch"
+          city="City Name Placeholder"
+          address="456 North Ave, District"
+          serviceTime="Sunday, 9:00 AM"
+        />
+        <BranchCard
+          branchName="South Branch"
+          city="City Name Placeholder"
+          address="789 South Blvd, District"
+          serviceTime="Sunday, 11:00 AM"
+        />
+      </div>
+
+      <div class="mt-12 text-center">
+        <a
+          href="/branches"
+          class="inline-flex items-center gap-2 text-[#8B0000] font-bold text-base hover:text-[#6e0000] transition-colors duration-200 group border-b-2 border-transparent hover:border-[#8B0000] pb-0.5"
+        >
+          View All Branches
+          <svg
+            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CONTACT / PLAN YOUR VISIT
+  ═══════════════════════════════════════════════════════ -->
+  <section
+    id="contact-cta"
+    class="relative overflow-hidden py-24 sm:py-28 text-white"
+    style="background: linear-gradient(135deg, #8B0000 0%, #700000 60%, #4a0000 100%);"
+    aria-labelledby="contact-heading"
+  >
+    <!-- Decorative blur orbs -->
+    <div
+      class="absolute -right-24 -top-24 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="absolute -left-24 -bottom-24 w-96 h-96 bg-red-500/10 rounded-full blur-3xl pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
+      <div
+        class="flex flex-col md:flex-row items-center justify-between gap-10"
+      >
+        <div class="text-center md:text-left">
+          <p
+            class="text-white/60 font-bold tracking-[0.15em] uppercase text-xs sm:text-sm mb-3"
+          >
+            We'd Love to Meet You
+          </p>
+          <h2
+            id="contact-heading"
+            class="font-outfit text-3xl sm:text-4xl font-extrabold mb-5 leading-tight"
+          >
+            Get in Touch With Us
+          </h2>
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-white/80">
+            <a
+              href="tel:+15551234567"
+              class="flex items-center gap-3 hover:text-white transition-colors duration-200 group text-sm sm:text-base"
+            >
+              <div
+                class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-200 flex-shrink-0"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path></svg
+                >
+              </div>
+              <!-- REPLACE: Phone number -->
+              +1 (555) 123-4567
+            </a>
+            <a
+              href="mailto:info@brideofchristtabernacle.com"
+              class="flex items-center gap-3 hover:text-white transition-colors duration-200 group text-sm sm:text-base"
+            >
+              <div
+                class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-200 flex-shrink-0"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path></svg
+                >
+              </div>
+              <!-- REPLACE: Email address -->
+              info@brideofchristtabernacle.com
+            </a>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 bg-white text-[#8B0000] hover:bg-gray-50 active:bg-gray-100 font-bold py-4 px-10 rounded-full transition-all duration-250 text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/60 whitespace-nowrap min-h-[52px]"
+          >
+            Plan Your Visit
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero fade-in animation */
+  @keyframes heroFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-fade-in {
+    animation: heroFadeUp 0.8s ease-out both;
+  }
+
+  /* Icon background tint helper */
+  .bg-\[\#8B0000\]\/8 {
+    background-color: rgb(139 0 0 / 0.08);
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

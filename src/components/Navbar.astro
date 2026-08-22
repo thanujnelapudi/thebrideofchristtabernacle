@@ -1,0 +1,96 @@
+---
+const currentPath = Astro.url.pathname;
+const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Branches', href: '/branches' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Contact', href: '/contact' },
+];
+---
+
+<nav id="main-navbar" class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20 w-full" style="height:80px;">
+      <div class="flex items-center">
+        <a href="/" class="flex items-center space-x-3 hover:opacity-90 transition-opacity duration-200" aria-label="Go to homepage">
+          <img src="/images/Logo.jpg" alt="Bride of Christ Tabernacle Logo" class="h-14 w-14 object-cover rounded-full shadow-sm border border-gray-100" />
+          <span class="font-outfit text-lg sm:text-xl font-extrabold text-gray-900 tracking-tight hidden sm:inline-block">
+            Bride of Christ <span class="text-[#8B0000]">Tabernacle</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center space-x-8 lg:space-x-10">
+        {navLinks.map((link) => {
+            const isActive = (link.href === '/' && currentPath === '/') || (link.href !== '/' && currentPath.startsWith(link.href));
+            return (
+            <a
+                href={link.href}
+                class={`inline-flex items-center px-1 py-1 text-[15px] font-semibold tracking-wide transition-all duration-200 border-b-2 ${
+                    isActive
+                        ? 'text-[#8B0000] font-bold border-[#8B0000]'
+                        : 'text-gray-700 hover:text-[#8B0000] border-transparent hover:border-[#8B0000]/40'
+                }`}
+                aria-current={isActive ? 'page' : undefined}
+            >
+                {link.name}
+            </a>
+        )})}
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="flex items-center md:hidden">
+        <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2.5 rounded-lg text-gray-700 hover:text-[#8B0000] hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#8B0000]/30 transition-colors duration-200 min-h-[44px] min-w-[44px]" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="block h-6 w-6" id="menu-icon-closed" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg class="hidden h-6 w-6" id="menu-icon-open" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="hidden md:hidden bg-white border-b border-gray-200 absolute w-full shadow-lg" id="mobile-menu">
+    <div class="pt-2 pb-4 space-y-1 px-4">
+        {navLinks.map((link) => {
+            const isActive = (link.href === '/' && currentPath === '/') || (link.href !== '/' && currentPath.startsWith(link.href));
+            return (
+            <a
+                href={link.href}
+                class={`block py-3 px-3 text-base font-semibold transition-colors duration-200 rounded-lg ${
+                    isActive
+                        ? 'border-l-4 border-[#8B0000] text-[#8B0000] bg-gray-50 pl-4'
+                        : 'border-l-4 border-transparent text-gray-800 hover:text-[#8B0000] hover:bg-gray-50 hover:pl-4 hover:border-[#8B0000]/50'
+                }`}
+                aria-current={isActive ? 'page' : undefined}
+            >
+                {link.name}
+            </a>
+        )})}
+    </div>
+  </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const iconClosed = document.getElementById('menu-icon-closed');
+        const iconOpen = document.getElementById('menu-icon-open');
+        if (btn && menu && iconClosed && iconOpen) {
+            btn.addEventListener('click', () => {
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', (!isExpanded).toString());
+                menu.classList.toggle('hidden');
+                iconClosed.classList.toggle('hidden');
+                iconOpen.classList.toggle('hidden');
+            });
+        }
+    });
+</script>

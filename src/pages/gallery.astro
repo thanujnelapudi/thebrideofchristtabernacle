@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+---
+
+<Layout title="Gallery">
+  <!-- Hero Banner -->
+  <section class="relative py-20 md:py-24 bg-gradient-to-r from-[#8B0000] via-[#700000] to-[#4a0000] text-white text-center overflow-hidden">
+    <!-- Subtle background pattern -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 36px 36px;"></div>
+
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+      <p class="text-[#e07b20] text-sm font-semibold tracking-[0.2em] uppercase mb-3 opacity-90">
+        Church Life &amp; Events
+      </p>
+      <h1 class="font-outfit text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4">Gallery</h1>
+      <div class="w-16 h-px bg-white/30 mx-auto mt-4 mb-4"></div>
+      <p class="text-white/80 text-base sm:text-lg max-w-xl mx-auto font-light leading-relaxed">
+        Moments of fellowship, worship, and community captured across our services and events.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid Section -->
+  <section class="py-20 md:py-28 bg-[#fafafa] flex-grow">
+    <div class="max-w-7xl mx-auto px-6">
+      <GalleryGrid />
+    </div>
+  </section>
+</Layout>

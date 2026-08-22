@@ -1,0 +1,32 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/jpeg" href="/images/Logo.jpg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Bride of Christ Tabernacle</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-white text-gray-800 font-jakarta text-[17px] leading-[1.75] m-0 p-0 antialiased min-h-screen flex flex-col">
+        <Navbar />
+        <main class="flex-grow pt-[80px]">
+		    <slot />
+        </main>
+        <Footer />
+	</body>
+</html>

@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand Colors ─────────────────────────────────────── */
+  --color-primary:           #8B0000;
+  --color-primary-dark:      #6e0000;
+  --color-primary-deeper:    #4a0000;
+  --color-accent:            #e07b20;
+  --color-accent-light:      #f0c070;
+
+  /* ── Text ─────────────────────────────────────────────── */
+  --color-text-light:        #111111;
+  --color-text-dark:         #f5f5f5;
+  --color-text-muted:        #6b7280;
+
+  /* ── Backgrounds ──────────────────────────────────────── */
+  --color-bg-light:          #ffffff;
+  --color-bg-subtle:         #fafafa;
+  --color-bg-dark:           #0a0a0a;
+
+  /* ── Typography ───────────────────────────────────────── */
+  --font-jakarta:  "Plus Jakarta Sans", sans-serif;
+  --font-outfit:   "Outfit", sans-serif;
+}
+
+/* ── Global Resets & Base ───────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Focus ring for keyboard navigation ─────────────────── */
+:focus-visible {
+  outline: 2px solid #8B0000;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Selection color ────────────────────────────────────── */
+::selection {
+  background-color: #8B0000;
+  color: #ffffff;
+}
+
+/* ── Subtle icon tint utility ───────────────────────────── */
+.icon-tint {
+  background-color: rgb(139 0 0 / 0.08);
+}
+
+/* ── Transition durations ───────────────────────────────── */
+.duration-250 {
+  transition-duration: 250ms;
+}
+
+/* ── Remove default list styles ─────────────────────────── */
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
