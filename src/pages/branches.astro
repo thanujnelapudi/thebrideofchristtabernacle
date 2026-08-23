@@ -2,47 +2,146 @@
 import Layout from '../layouts/Layout.astro';
 import BranchCard from '../components/BranchCard.astro';
 
-const branches = [
-  { branchName: "Main Branch", city: "City Name Placeholder", address: "123 Placeholder St, District", serviceTime: "Sunday, 10:00 AM" },
-  { branchName: "North Branch", city: "City Name Placeholder", address: "456 North Ave, District", serviceTime: "Sunday, 9:00 AM" },
-  { branchName: "South Branch", city: "City Name Placeholder", address: "789 South Blvd, District", serviceTime: "Sunday, 11:00 AM" },
-  { branchName: "East Branch", city: "City Name Placeholder", address: "101 East Rd, District", serviceTime: "Sunday, 10:30 AM" },
-  { branchName: "West Branch", city: "City Name Placeholder", address: "202 West Ln, District", serviceTime: "Sunday, 8:30 AM" },
-  { branchName: "Central Branch", city: "City Name Placeholder", address: "303 Central Sq, District", serviceTime: "Sunday, 9:30 AM" },
+const leftBranches = [
+  {
+    branchName: "Chatukupadu",
+    churchName: "Bride of Lord Jesus Christ Tabernacle",
+    fullAddress: "Chatukupadu, Jarugumalli Mandal, Prakasam District, Andhra Pradesh — 523001",
+    services: [
+      { name: "Sunday Worship", schedule: "Sunday · 10:00 AM" },
+      { name: "Prayer & Intercession", schedule: "Every Saturday · 8:00 PM" },
+      { name: "Fasting Meeting", schedule: "First Friday of every month · 8:00 PM" },
+      { name: "Lord's Supper", schedule: "First Sunday of every month · 4:00 PM" },
+    ],
+    leaderRole: "Pastor",
+    leaderName: "Pastor Rufus Daniel",
+  },
+  {
+    branchName: "Ongole",
+    churchName: "Bride of Christ Tabernacle",
+    fullAddress: "Rajapanagal 15th Cross Road, Gaddalagunta, Ongole, Prakasam District, Andhra Pradesh — 523001",
+    services: [
+      { name: "Sunday Worship", schedule: "Sunday · 7:00 PM" },
+      { name: "Bible Study", schedule: "Every Wednesday · 7:00 PM" },
+    ],
+    leaderRole: "Pastor",
+    leaderName: "Pastor Rufus Daniel",
+  },
+];
+
+const rightBranches = [
+  {
+    branchName: "Kandukur",
+    churchName: "Bride of Christ Tabernacle",
+    fullAddress: "Near Pattu, Kovvuru Road, Kandukur, Andhra Pradesh",
+    services: [
+      { name: "Sunday Worship", schedule: "Sunday · 9:00 AM" },
+    ],
+    leaderRole: "Pastor",
+    leaderName: "Pastor Rufus Daniel",
+  },
+  {
+    branchName: "Vempadu",
+    churchName: "End Time Message Church",
+    fullAddress: "Vempadu Village, Ponnaluru Mandal, Prakasam District, Andhra Pradesh",
+    services: [
+      { name: "Sunday Worship", schedule: "Sunday · 10:00 AM" },
+    ],
+    leaderRole: "Minister",
+    leaderName: "Brother Prem Sagar",
+  },
 ];
 ---
 
 <Layout title="Our Branches">
-  <!-- Hero Banner -->
-  <section class="relative py-20 md:py-24 bg-gradient-to-r from-[#8B0000] via-[#700000] to-[#4a0000] text-white text-center overflow-hidden">
+  <!-- Hero Banner (Compact & Focused) -->
+  <section class="relative py-14 md:py-18 bg-gradient-to-r from-[#8B0000] via-[#700000] to-[#4a0000] text-white text-center overflow-hidden">
     <!-- Subtle background pattern -->
     <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 36px 36px;"></div>
 
-    <div class="max-w-4xl mx-auto px-6 relative z-10">
-      <p class="text-[#e07b20] text-sm font-semibold tracking-[0.2em] uppercase mb-3 opacity-90">
+    <div class="max-w-3xl mx-auto px-6 relative z-10">
+      <p class="text-[#e07b20] text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase mb-2 opacity-90">
         Worship Locations
       </p>
-      <h1 class="font-outfit text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4">Our Branches</h1>
-      <div class="w-16 h-px bg-white/30 mx-auto mt-4 mb-4"></div>
-      <p class="text-white/80 text-base sm:text-lg max-w-xl mx-auto font-light leading-relaxed">
-        Find a Bride of Christ Tabernacle location near you and join us for worship and fellowship.
+      <h1 class="font-outfit text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-3">Our Branches</h1>
+      <div class="w-12 h-px bg-white/30 mx-auto my-3"></div>
+      <p class="text-white/80 text-sm sm:text-base max-w-lg mx-auto font-light leading-relaxed">
+        Find a Bride of Christ Tabernacle location near you across our four branches and join us for worship and fellowship.
       </p>
     </div>
   </section>
 
-  <!-- Branches Grid -->
-  <section class="py-20 md:py-28 bg-[#fafafa] flex-grow">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {branches.map((branch) => (
-          <BranchCard 
-            branchName={branch.branchName} 
-            city={branch.city} 
-            address={branch.address} 
-            serviceTime={branch.serviceTime} 
-          />
-        ))}
+  <!-- Branches Directory (Two Independent Vertical Columns on Desktop) -->
+  <section class="py-14 md:py-20 bg-[#fafafa] flex-grow">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      
+      <!-- Desktop & Tablet: 2 independent vertical columns -->
+      <div class="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8 items-start">
+        <!-- Left Column: Chatukupadu + Ongole -->
+        <div class="flex flex-col gap-6 lg:gap-8">
+          {leftBranches.map((branch) => (
+            <BranchCard 
+              branchName={branch.branchName}
+              churchName={branch.churchName}
+              fullAddress={branch.fullAddress}
+              services={branch.services}
+              leaderRole={branch.leaderRole}
+              leaderName={branch.leaderName}
+            />
+          ))}
+        </div>
+
+        <!-- Right Column: Kandukur + Vempadu -->
+        <div class="flex flex-col gap-6 lg:gap-8">
+          {rightBranches.map((branch) => (
+            <BranchCard 
+              branchName={branch.branchName}
+              churchName={branch.churchName}
+              fullAddress={branch.fullAddress}
+              services={branch.services}
+              leaderRole={branch.leaderRole}
+              leaderName={branch.leaderName}
+            />
+          ))}
+        </div>
       </div>
+
+      <!-- Mobile: 1 vertical column in exact order (Chatukupadu -> Kandukur -> Ongole -> Vempadu) -->
+      <div class="flex flex-col gap-6 md:hidden">
+        <BranchCard 
+          branchName={leftBranches[0].branchName}
+          churchName={leftBranches[0].churchName}
+          fullAddress={leftBranches[0].fullAddress}
+          services={leftBranches[0].services}
+          leaderRole={leftBranches[0].leaderRole}
+          leaderName={leftBranches[0].leaderName}
+        />
+        <BranchCard 
+          branchName={rightBranches[0].branchName}
+          churchName={rightBranches[0].churchName}
+          fullAddress={rightBranches[0].fullAddress}
+          services={rightBranches[0].services}
+          leaderRole={rightBranches[0].leaderRole}
+          leaderName={rightBranches[0].leaderName}
+        />
+        <BranchCard 
+          branchName={leftBranches[1].branchName}
+          churchName={leftBranches[1].churchName}
+          fullAddress={leftBranches[1].fullAddress}
+          services={leftBranches[1].services}
+          leaderRole={leftBranches[1].leaderRole}
+          leaderName={leftBranches[1].leaderName}
+        />
+        <BranchCard 
+          branchName={rightBranches[1].branchName}
+          churchName={rightBranches[1].churchName}
+          fullAddress={rightBranches[1].fullAddress}
+          services={rightBranches[1].services}
+          leaderRole={rightBranches[1].leaderRole}
+          leaderName={rightBranches[1].leaderName}
+        />
+      </div>
+
     </div>
   </section>
 </Layout>
